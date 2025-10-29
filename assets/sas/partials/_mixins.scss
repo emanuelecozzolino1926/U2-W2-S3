@@ -1,0 +1,14 @@
+@mixin nav-bar {
+  padding: 1rem;
+}
+
+@mixin floating {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@mixin grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}

@@ -1,0 +1,135 @@
+//IMPORT
+@use "partials/reset";
+@use "partials/color";
+@use "partials/font";
+@use "partials/mixins";
+@use "partials/animation";
+@use "partials/spacing";
+@use "partials/button";
+
+body {
+  font-family: font.$font-primary;
+  background-color: color.$bg-body;
+  color: color.$text-dark;
+  line-height: 1.6;
+}
+
+header nav {
+  width: 100%;
+  background-color: color.$bg-hero;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  .row {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: font.$font-size-xl;
+    font-weight: 700;
+    color: color.$text-dark;
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+
+    li {
+      color: color.$text-light;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+  background-color: color.$bg-hero;
+  padding: 4rem 2rem;
+
+  .hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hero-text {
+    color: color.$text-light;
+
+    h1 {
+      @include font.title-big;
+      color: color.$text-dark;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: font.$font-size-lg;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  .hero-image {
+    @include mixins.floating;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+.grid {
+  width: 100%;
+  background-color: white;
+  padding: 4rem 2rem;
+
+  .grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    @include mixins.grid-4;
+  }
+
+  .grid-item {
+    @include mixins.floating;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
